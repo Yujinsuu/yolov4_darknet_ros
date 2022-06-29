@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+  
+  <!-- Use YOLOv4 -->
+  <arg name="network_param_file"         default="$(find darknet_ros)/config/MDS_yolo_17c.yaml"/>
+  <arg name="image" default="/camera1/usb_cam1/image_raw" />
+
+
+  <!-- Include main launch file -->
+  <include file="$(find darknet_ros)/launch/ros_MDS.launch">
+    <arg name="network_param_file"    value="$(arg network_param_file)"/>
+    <arg name="image" value="$(arg image)" />
+  </include>
+
+</launch>
